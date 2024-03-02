@@ -1,0 +1,14 @@
+name: UltimateGUI
+version: '1.19.4'
+main: me.galaxy1007.tutoplug.Tutoplug
+api-version: 1.19
+commands:
+  gui:
+    description: Standaard GUI voor zelfmoord, eten en een zwaard verkrijgen.
+    usage: /<command>
+  fly:
+    description: Vlieg als een vogel!
+    usage: /<command>
+  bangui:
+    description: Opent de Ban GUI
+    usage: /<command>
