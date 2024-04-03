@@ -6,9 +6,12 @@ commands:
   gui:
     description: Standaard GUI voor zelfmoord, eten en een zwaard verkrijgen.
     usage: /<command>
+    permission: UltimatePlugin.gui
   fly:
     description: Vlieg als een vogel!
     usage: /<command>
   bangui:
     description: Opent de Ban GUI
     usage: /<command>
+  vanish:
+    description: Verberg jezelf!
