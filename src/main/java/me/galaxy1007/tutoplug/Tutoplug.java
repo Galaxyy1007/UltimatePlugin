@@ -14,10 +14,8 @@ public class Tutoplug extends JavaPlugin {
     public void onEnable() {
         this.getServer().getPluginManager().registerEvents(new standaardlisteners(), this);
         getCommand("fly").setExecutor(new VliegCommand());
-        getCommand("gui").setExecutor(new GUICommand());
-        getCommand("bangui").setExecutor(new BanGUICommand());
-        getServer().getPluginManager().registerEvents(new BanInventoryListener(), this);
-        getServer().getPluginManager().registerEvents(new ClickEvent(), this);
+        getCommand("vanish").setExecutor(new VanishCommand(this));
+        getServer().getPluginManager().registerEvents(new JoinEvent(this), this);
         System.out.println("[Tutoplug] Deze plugin staat aan!");
     }
 
