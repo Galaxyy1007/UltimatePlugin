@@ -12,7 +12,6 @@ public class Tutoplug extends JavaPlugin {
 
     @Override
     public void onEnable() {
-        this.getServer().getPluginManager().registerEvents(new standaardlisteners(), this);
         getCommand("fly").setExecutor(new VliegCommand());
         getCommand("vanish").setExecutor(new VanishCommand(this));
         getServer().getPluginManager().registerEvents(new JoinEvent(this), this);
