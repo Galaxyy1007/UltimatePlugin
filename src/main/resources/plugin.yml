@@ -1,17 +1,18 @@
-name: UltimateGUI
+name: UltimatePlugin
 version: '1.19.4'
-main: me.galaxy1007.tutoplug.Tutoplug
+main: me.galaxy1007.tutoplug.UltimateMain
 api-version: 1.19
 commands:
-  gui:
-    description: Standaard GUI voor zelfmoord, eten en een zwaard verkrijgen.
-    usage: /<command>
-    permission: UltimatePlugin.gui
   fly:
     description: Vlieg als een vogel!
     usage: /<command>
-  bangui:
-    description: Opent de Ban GUI
-    usage: /<command>
+    permission: UltimatePlugin.fly
   vanish:
     description: Verberg jezelf!
+    usage: /<command>
+    permission: UltimatePlugin.vanish
+  gui:
+    description: Open het plugin GUI.
+    usage: /<command>
+    permission: UltimatePlugin.gui
+
