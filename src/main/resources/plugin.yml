@@ -11,8 +11,11 @@ commands:
     description: Verberg jezelf!
     usage: /<command>
     permission: UltimatePlugin.vanish
-  gui:
-    description: Open het plugin GUI.
+    aliases:
+      - v
+  armorstand:
+    description: Maak een armorstand aan.
     usage: /<command>
-    permission: UltimatePlugin.gui
-
+    permission: UltimatePlugin.armorstand
+    aliases:
+      - as
