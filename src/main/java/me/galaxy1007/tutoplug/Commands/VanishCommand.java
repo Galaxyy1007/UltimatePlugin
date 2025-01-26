@@ -27,14 +27,16 @@ public class VanishCommand implements CommandExecutor {
                     people.showPlayer(plugin, player);
                 }
                 plugin.invisible_list.remove(player);
-                player.sendMessage(ChatColor.GRAY + "[" + ChatColor.AQUA + "UltimatePlugin" + ChatColor.GRAY + "] " + ChatColor.RED  + "Vanish is uitgeschakeld");
+                player.setInvulnerable(false);
+                player.sendMessage(ChatColor.GRAY + "[" + ChatColor.AQUA + "UltimatePlugin" + ChatColor.GRAY + "] " + ChatColor.GRAY  + "Vanish is " + ChatColor.RED + "uitgeschakeld");
                 Bukkit.broadcastMessage(ChatColor.YELLOW + player.getName() + " joined the game");
             }else if(!plugin.invisible_list.contains(player)){
                 for(Player people : Bukkit.getOnlinePlayers()){
                     people.hidePlayer(plugin, player);
+                    people.setInvulnerable(true);
                 }
                 plugin.invisible_list.add(player);
-                player.sendMessage(ChatColor.GRAY + "[" + ChatColor.AQUA + "UltimatePlugin" + ChatColor.GRAY + "] " + ChatColor.YELLOW   + "Vanish is ingeschakeld");
+                player.sendMessage(ChatColor.GRAY + "[" + ChatColor.AQUA + "UltimatePlugin" + ChatColor.GRAY + "] " + ChatColor.GRAY   + "Vanish is " + ChatColor.GREEN + "ingeschakeld");
                 Bukkit.broadcastMessage(ChatColor.YELLOW + player.getName() + " left the game");
                 
             }

@@ -19,3 +19,8 @@ commands:
     permission: UltimatePlugin.armorstand
     aliases:
       - as
+  heal:
+    description: genees jezelf!
+    usage: /<command>
+    aliases:
+      - h

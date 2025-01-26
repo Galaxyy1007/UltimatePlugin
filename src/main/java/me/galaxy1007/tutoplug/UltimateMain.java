@@ -1,10 +1,12 @@
 package me.galaxy1007.tutoplug;
 
 import me.galaxy1007.tutoplug.Commands.ArmorStandCommand;
+import me.galaxy1007.tutoplug.Commands.HealCommand;
 import me.galaxy1007.tutoplug.Commands.VanishCommand;
 import me.galaxy1007.tutoplug.Commands.VliegCommand;
 import me.galaxy1007.tutoplug.Events.MenuHandler;
 import me.galaxy1007.tutoplug.Events.OnJoinVanishEvent;
+import me.galaxy1007.tutoplug.Listeners.VanishListener;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.Material;
@@ -33,11 +35,13 @@ public final class UltimateMain extends JavaPlugin {
     @Override
     public void onEnable() {
         getCommand("fly").setExecutor(new VliegCommand(this));
+        getCommand("heal").setExecutor(new HealCommand(this));
+        getServer().getPluginManager().registerEvents(new VanishListener(this), this);
         getCommand("armorstand").setExecutor(new ArmorStandCommand(this));
         getServer().getPluginManager().registerEvents(new MenuHandler(this), this);
         getCommand("vanish").setExecutor(new VanishCommand(this));
         getServer().getPluginManager().registerEvents(new OnJoinVanishEvent(this), this);
-        System.out.println(ChatColor.BLUE + "[UltimatePlugin] Deze plugin staat ingeschakeld");
+        System.out.println("[UltimatePlugin] Deze plugin staat ingeschakeld");
 
         //Setup Config
         getConfig().options().copyDefaults();
