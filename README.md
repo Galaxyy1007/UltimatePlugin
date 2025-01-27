@@ -1,4 +1,8 @@
 # UltimatePlugin
 A Minecraft plugin with various features
-
-This is my first java project with a Minecraft plugin that contains various features (in development).
+Features:
+- Backpack system
+- Vanish (for admins)
+- Armorstand creator
+- Heal command
+- Fly for survival
