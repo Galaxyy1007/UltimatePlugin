@@ -1,12 +1,9 @@
 package me.galaxy1007.tutoplug;
 
-import me.galaxy1007.tutoplug.Commands.ArmorStandCommand;
-import me.galaxy1007.tutoplug.Commands.HealCommand;
-import me.galaxy1007.tutoplug.Commands.VanishCommand;
+import me.galaxy1007.tutoplug.Commands.*;
 import me.galaxy1007.tutoplug.listeners.AutoCollectListener;
 import me.galaxy1007.tutoplug.listeners.BackpackListener;
 import me.galaxy1007.tutoplug.managers.BackpackManager;
-import me.galaxy1007.tutoplug.Commands.VliegCommand;
 import me.galaxy1007.tutoplug.Events.MenuHandler;
 import me.galaxy1007.tutoplug.Events.OnJoinVanishEvent;
 import me.galaxy1007.tutoplug.listeners.VanishListener;
@@ -45,6 +42,7 @@ public final class UltimateMain extends JavaPlugin {
         }
         getCommand("fly").setExecutor(new VliegCommand(this));
         getCommand("heal").setExecutor(new HealCommand(this));
+        getCommand("rugtas").setExecutor(new GiveBackpackCommand(backpackManager));
         getServer().getPluginManager().registerEvents(new BackpackListener(backpackManager), this);
         getServer().getPluginManager().registerEvents(new AutoCollectListener(backpackManager), this);
         getServer().getPluginManager().registerEvents(new VanishListener(this), this);
