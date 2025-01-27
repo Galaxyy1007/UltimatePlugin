@@ -24,3 +24,9 @@ commands:
     usage: /<command>
     aliases:
       - h
+  rugtas:
+    description: verkrijg een rugtas
+    usage: /<command>
+    aliases:
+      - rugtas
+      - backpack
