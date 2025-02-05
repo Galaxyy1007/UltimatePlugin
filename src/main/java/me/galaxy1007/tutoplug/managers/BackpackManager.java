@@ -1,5 +1,6 @@
 package me.galaxy1007.tutoplug.managers;
 
+import me.galaxy1007.tutoplug.Commands.GiveBackpackCommand;
 import me.galaxy1007.tutoplug.UltimateMain;
 import me.galaxy1007.tutoplug.utils.ItemSerializer;
 import org.bukkit.Bukkit;

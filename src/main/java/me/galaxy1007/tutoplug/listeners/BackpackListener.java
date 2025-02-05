@@ -26,6 +26,13 @@ public class BackpackListener implements Listener {
         ItemStack item = event.getItem();
         if (item == null) return;
 
+        // Prevent placing the backpack as a block
+        if (event.getAction() == Action.RIGHT_CLICK_BLOCK && backpackManager.isBackpack(item)) {
+            event.setCancelled(true);
+            event.getPlayer().sendMessage(ChatColor.RED + "You cant place this on the ground");
+            return;
+        }
+
         var backpackInventory = backpackManager.getBackpackInventory(item);
         if (backpackInventory == null) return;
 
@@ -43,18 +50,17 @@ public class BackpackListener implements Listener {
 
     @EventHandler
     public void onBackpackClose(InventoryCloseEvent event) {
-        //figure out if the player is closing a backpack inventory
-        //if they are, save the contents of the inventory to the item persistent data container
+        // Figure out if the player is closing a backpack inventory
+        // If they are, save the contents of the inventory to the item's persistent data container
         var backpackId = backpackManager.getBackpackId(event.getInventory());
         if (backpackId == null) return;
 
         for (var item : event.getPlayer().getInventory().getContents()) {
-            if (item != null && backpackManager.isBackpackItemById(item, backpackId)){
-                //save the contents to the item
+            if (item != null && backpackManager.isBackpackItemById(item, backpackId)) {
+                // Save the contents to the item
                 backpackManager.saveBackpackContents(event.getInventory(), item);
                 break;
             }
         }
     }
-
 }

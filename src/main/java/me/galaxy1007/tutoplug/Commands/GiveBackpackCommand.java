@@ -2,6 +2,7 @@ package me.galaxy1007.tutoplug.Commands;
 
 import me.galaxy1007.tutoplug.managers.BackpackManager;
 import org.bukkit.ChatColor;
+import org.bukkit.GameMode;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
@@ -23,11 +24,16 @@ public class GiveBackpackCommand implements CommandExecutor {
         }
 
         Player player = (Player) sender;
-
-        // Maak een nieuwe backpack en geef deze aan de speler
-        player.getInventory().addItem(backpackManager.createBackpack());
-        player.sendMessage(ChatColor.GREEN + "Je hebt een rugtas ontvangen!");
-
+        if (player.isOp()) {
+            // Maak een nieuwe backpack en geef deze aan de speler
+            player.getInventory().addItem(backpackManager.createBackpack());
+            player.sendMessage(ChatColor.GREEN + "Je hebt een rugtas ontvangen!");
+        } else if (player.getGameMode().equals(GameMode.CREATIVE)) {
+            player.getInventory().addItem(backpackManager.createBackpack());
+            player.sendMessage(ChatColor.GREEN + "Je hebt een rugtas ontvangen!");
+        } else if (!player.isOp() || !player.getGameMode().equals(GameMode.CREATIVE)) {
+            player.sendMessage(ChatColor.RED + "Je hebt speciale rechten nodig om de rugtas via een commando te verkrijgen!");
+        }
         return true;
     }
 }
